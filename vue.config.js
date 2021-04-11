@@ -1,0 +1,18 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: xds
+ * @Date: 2021-04-05 09:39:54
+ * @LastEditors: xds
+ * @LastEditTime: 2021-04-05 19:49:08
+ */
+const path = require('path')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+module.exports = {
+  chainWebpack: config => {
+    config.resolve.alias.set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
+  },
+}

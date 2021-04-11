@@ -1,32 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: xds
+ * @Date: 2021-04-05 19:31:21
+ * @LastEditors: xds
+ * @LastEditTime: 2021-04-09 22:07:17
+-->
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <button
+      @click = 'goAnothoerAddress'
+    >去子路由</button>
+    <dagre/>
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
+<script>
+// import HelloWorld from './components/HelloWorld.vue'
+import dagre from './components/dagre'
+
+export default {
+  name: 'App',
+  components: {
+    dagre
+  },
+  data(){
+    return {
+
+    }
+  },
+  methods:{
+    goAnothoerAddress(){
+      this.$router.push({name: 'topology', params: {id: 'haha'}})
+    }
+  }
+}
+</script>
+
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  margin-top: 60px;
 }
 </style>
